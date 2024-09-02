@@ -1,0 +1,49 @@
+<!-- extends -->
+{% extends 'base.html' %}
+<!-- block title -->
+{% block title %}Boggle - Home{% endblock %}
+<!-- block content start-->
+{% block content %}
+<h1>👁 _ Boggle _ 👁</h1>
+<table class="board">
+   <tbody>
+      {% for row in board %}
+      <tr>
+         {% for col in row %}
+         <td>{{ col }}</td>
+         {% endfor %}
+      </tr>
+      {% endfor %}
+   </tbody>
+</table>
+
+<p>
+   High Score:
+   <b>{{ highscore }}</b>
+   | {{ nplays }} games played
+</p>
+
+<p>Score: <b class="score">0</b> | <b class="timer"></b> seconds remaining</p>
+
+<form
+   method="POST"
+   class="add-word"
+   autocomplete="off"
+>
+   <input
+      name="word"
+      class="word"
+      placeholder="Submit your guess"
+      autofocus
+   />
+   <button>Submit</button>
+</form>
+
+<p class="msg">
+   <!-- our JS will put messages here dynamically -->
+</p>
+
+<ul class="words">
+   <!-- our JS will add words here as they score -->
+</ul>
+{% endblock %}
